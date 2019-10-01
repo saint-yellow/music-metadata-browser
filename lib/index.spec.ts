@@ -78,7 +78,7 @@ const tiuqottigeloot_vol24_Tracks = [
       title: 'We Are Going to Eclecfunk Your Ass',
       artist: 'Eclectek'
     }
-  },
+  } /* ,
   {
     url:
       '/Various%20Artists%20-%202009%20-%20netBloc%20Vol%2024_%20tiuqottigeloot%20%5BMP3-V2%5D/03%20-%20Auto-Pilot%20-%20Seventeen.mp3',
@@ -87,7 +87,7 @@ const tiuqottigeloot_vol24_Tracks = [
       title: 'Seventeen',
       artist: 'Auto-Pilot'
     }
-  },
+  }
   {
     url:
       '/Various%20Artists%20-%202009%20-%20netBloc%20Vol%2024_%20tiuqottigeloot%20%5BMP3-V2%5D/04%20-%20Muha%20-%20Microphone.mp3',
@@ -168,7 +168,7 @@ const tiuqottigeloot_vol24_Tracks = [
       title: 'The Cycle (feat. Mista Mista)',
       artist: 'CM aka Creative'
     }
-  }
+  } */
 ];
 
 xdescribe('music-metadata-browser', () => {
