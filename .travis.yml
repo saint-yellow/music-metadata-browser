@@ -6,7 +6,7 @@ install:
 script:
  - yarn run lint
  - yarn build
- - yarn run travis-karma-browserstack
+ - yarn run travis-karma-crossbrowsertesting
 after_script:
  - yarn run post-coveralls
  - yarn add -D codacy-coverage

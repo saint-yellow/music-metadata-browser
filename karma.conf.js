@@ -1,6 +1,8 @@
 // Karma configuration file, see link for more information
 // https://karma-runner.github.io/1.0/config/configuration-file.html
 
+require('babel-polyfill');
+
 const path = require('path');
 
 module.exports = config => {
@@ -8,6 +10,10 @@ module.exports = config => {
     basePath: 'lib',
     frameworks: [
       'jasmine'
+    ],
+    plugins: [
+      'karma-*',
+      'karma-cbt-launcher',
     ],
     files: [
       {pattern: '**/*.spec.ts'}
@@ -57,48 +63,39 @@ module.exports = config => {
       combineBrowserReports: true // Combines coverage information from multiple browsers into one report
     },
 
-    // global BrowserStack configuration
-    browserStack: {
-      forcelocal: true,  // force traffic through the local BrowserStack tunnel, passes flag through to BrowserStackTunnel
-      project: 'music-metadata-browser'
+    // crossbrowsertesting.com
+    cbtConfig: {
+      username: process.env.CBT_USERNAME,
+      accessKey: process.env.CBT_AUTHKEY
     },
+
+    logLevel: config.LOG_DEBUG,
 
     // define browsers
     customLaunchers: {
       bs_win_chrome: {
-        base: 'BrowserStack',
-        os: 'Windows',
-        os_version: '10',
-        browser: 'Chrome',
-        browser_version: '77.0'
+        base: 'CrossBrowserTesting',
+        browserName: 'bs_win_chrome',
+        os_api_name: 'Win10',
+        browser_api_name: 'chrome-latest'
       },
       bs_win_firefox: {
-        base: 'BrowserStack',
-        os: 'Windows',
-        os_version: '10',
-        browser: 'Firefox',
-        browser_version: '69.0'
+        base: 'CrossBrowserTesting',
+        browserName: 'Firefox',
+        version: '72x64',
+        platform: 'Windows 10'
       },
       bs_osx_safari: {
-        base: 'BrowserStack',
-        os: 'OS X',
-        os_version: 'Mojave',
-        browser: 'Safari',
-        browser_version: '12.1'
+        base: 'CrossBrowserTesting',
+        browserName: 'Safari',
+        version: '13',
+        platform: 'Mac OSX 10.15'
       },
       bs_win_edge: {
-        base: 'BrowserStack',
-        os: 'Windows',
-        os_version: '10',
-        browser: 'Edge',
-        browser_version: '18'
-      },
-      bs_win_opera: {
-        base: 'BrowserStack',
-        os: 'Windows',
-        os_version: '10',
-        browser: 'Opera',
-        browser_version: '63'
+        base: 'CrossBrowserTesting',
+        browserName: 'bs_win_edge',
+        os_api_name: 'Win10',
+        browser_api_name: 'edge-latest'
       }
     },
 

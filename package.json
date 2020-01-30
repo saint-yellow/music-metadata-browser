@@ -75,14 +75,15 @@
     "karma-firefox": "karma start --browsers Firefox",
     "karma-once": "karma start --browsers Chrome --single-run",
     "travis-karma": "karma start --browsers Firefox --single-run --reporters coverage-istanbul,spec",
-    "browserstack": "karma start --browsers bs_win_chrome,bs_win_firefox,bs_osx_safari,bs_win_edge,bs_win_opera --single-run --reporters coverage-istanbul,spec",
-    "travis-karma-browserstack": "karma start --browsers bs_win_chrome,bs_osx_safari,bs_win_opera --single-run --reporters coverage-istanbul,spec,BrowserStack",
+    "crossbrowsertesting": "karma start --browsers bs_win_chrome,bs_win_firefox,bs_osx_safari,bs_win_edge --single-run --reporters coverage-istanbul,spec",
+    "travis-karma-crossbrowsertesting": "karma start --browsers  bs_win_chrome,bs_win_firefox,bs_osx_safari,bs_win_edge --single-run --reporters coverage-istanbul,spec",
     "post-coveralls": "coveralls < coverage/lcov.info",
     "post-codacy": " codacy-coverage < coverage/lcov.info"
   },
   "devDependencies": {
     "@types/jasmine": "^3.5.2",
     "@types/node": "^13.5.1",
+    "babel-polyfill": "^6.26.0",
     "coveralls": "^3.0.7",
     "del-cli": "^3.0.0",
     "eslint": "^6.8.0",
@@ -90,7 +91,7 @@
     "istanbul-instrumenter-loader": "^3.0.1",
     "jasmine-core": "^3.5.0",
     "karma": "^4.4.1",
-    "karma-browserstack-launcher": "^1.5.1",
+    "karma-cbt-launcher": "^0.4.6",
     "karma-chrome-launcher": "^3.0.0",
     "karma-coverage-istanbul-reporter": "^2.0.5",
     "karma-firefox-launcher": "^1.3.0",
@@ -113,5 +114,8 @@
     "readable-web-to-node-stream": "^2.0.0",
     "remove": "^0.1.5",
     "typedarray-to-buffer": "^3.1.5"
+  },
+  "resolutions": {
+    "karma-cbt-launcher/cbt_tunnels": "1.2.2"
   }
 }
