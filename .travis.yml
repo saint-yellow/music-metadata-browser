@@ -9,5 +9,4 @@ script:
  - yarn run travis-karma-browserstack
 after_script:
  - yarn run post-coveralls
- - yarn add -D codacy-coverage
  - yarn run send-codacy
